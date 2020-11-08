@@ -13,16 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TailorMadeTours.UserControls
-{
-    /// <summary>
-    /// Interaction logic for DetailView.xaml
-    /// </summary>
-    public partial class DetailView : UserControl
-    {
-        public DetailView()
-        {
-            InitializeComponent();
-        }
+namespace TailorMadeTours.UserControls {
+  /// <summary>
+  /// Interaction logic for DetailView.xaml
+  /// </summary>
+  public partial class DetailView : UserControl {
+    public DetailView() {
+      InitializeComponent();
     }
+  }
 }
