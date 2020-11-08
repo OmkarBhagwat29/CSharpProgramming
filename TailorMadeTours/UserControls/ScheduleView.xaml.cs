@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TailorMadeTours
+namespace TailorMadeTours.UserControls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ScheduleView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ScheduleView : UserControl
     {
-        public MainWindow()
+        public ScheduleView()
         {
             InitializeComponent();
-        }
-
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

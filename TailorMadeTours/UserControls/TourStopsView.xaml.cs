@@ -12,22 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TailorMadeTours.Models;
 
-namespace TailorMadeTours
+namespace TailorMadeTours.UserControls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for TourStopsView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TourStopsView : UserControl
     {
-        public MainWindow()
+        public TourStopsView()
         {
             InitializeComponent();
-        }
 
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            TourListBox.ItemsSource = TourSource.GetAllTourStops();
         }
     }
 }
