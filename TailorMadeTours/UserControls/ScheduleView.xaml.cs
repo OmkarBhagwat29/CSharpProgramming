@@ -13,16 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TailorMadeTours.UserControls
-{
-    /// <summary>
-    /// Interaction logic for ScheduleView.xaml
-    /// </summary>
-    public partial class ScheduleView : UserControl
-    {
-        public ScheduleView()
-        {
-            InitializeComponent();
-        }
+namespace TailorMadeTours.UserControls {
+  /// <summary>
+  /// Interaction logic for ScheduleView.xaml
+  /// </summary>
+  public partial class ScheduleView : UserControl {
+    public ScheduleView() {
+      InitializeComponent();
     }
+  }
 }

@@ -5,33 +5,44 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TailorMadeTours.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-  <StackPanel Background="DarkGray">
-    <Grid Height="250"
-          Margin="0,6,0,0">
+             d:DesignHeight="300" d:DesignWidth="300">
+  <StackPanel  Background='DarkGray'>
+    <Grid Height='250'
+          Margin='0,6,0,0'>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width='113*' />
+        <ColumnDefinition Width='673*' />
+      </Grid.ColumnDefinitions>
       <Grid.RowDefinitions>
-        <RowDefinition Height="1*" />
-        <RowDefinition Height="60" />
+        <RowDefinition Height='1*' />
+        <RowDefinition Height='60' />
       </Grid.RowDefinitions>
-      <Image 
-             Grid.RowSpan="2"
-             Stretch="UniformToFill"
-             Source="/TailorMadeTours;component/Images/Stops/Pastry.jpg"></Image>
-      <Rectangle Grid.Row="1"
-                 Fill="#66001E44"></Rectangle>
+      <Image Height='250'
+           
+             Grid.RowSpan='2'
+             Stretch='UniformToFill'
+             Grid.ColumnSpan='2'
+             Source='/TailorMadeTours;component/Images/Stops/Pastry.jpg'></Image>
+      <Rectangle Grid.Row='1'
+                 Fill='#66001E44'
+                 Grid.ColumnSpan='2'></Rectangle>
       <Image Source="/Images/MapPin.png"
              Stretch="UniformToFill"
              Width="50"
              Height="50"
              Grid.Row="1"
-             HorizontalAlignment="Right" />
+             HorizontalAlignment="Right"
+             Grid.Column='1'
+             Margin='0,5' />
       <TextBlock Text="Paddington's Pastries"
                  Foreground="White"
                  FontSize="28"
                  FontWeight="Bold"
                  Grid.Row="1"
                  TextAlignment="Left"
-                 VerticalAlignment="Center" />
+                 VerticalAlignment="Center"
+                 Grid.ColumnSpan='2'
+                 Margin='0,11' />
     </Grid>
     <StackPanel Orientation="Vertical"
                 Margin="10">

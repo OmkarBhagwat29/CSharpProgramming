@@ -14,18 +14,15 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TailorMadeTours.Models;
 
-namespace TailorMadeTours.UserControls
-{
-    /// <summary>
-    /// Interaction logic for TourStopsView.xaml
-    /// </summary>
-    public partial class TourStopsView : UserControl
-    {
-        public TourStopsView()
-        {
-            InitializeComponent();
+namespace TailorMadeTours.UserControls {
+  /// <summary>
+  /// Interaction logic for TourStopsView.xaml
+  /// </summary>
+  public partial class TourStopsView : UserControl {
+    public TourStopsView() {
+      InitializeComponent();
 
-            TourListBox.ItemsSource = TourSource.GetAllTourStops();
-        }
+      ToursListBox.ItemsSource = TourSource.GetAllTourStops();
     }
+  }
 }

@@ -4,31 +4,32 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TailorMadeTours"
-        xmlns:views="clr-namespace:TailorMadeTours.UserControls"
+        xmlns:views='clr-namespace:TailorMadeTours.UserControls'
         mc:Ignorable="d"
         Title="Tailor-made Tours"
         Height="700"
         Width="800"
-        WindowStartupLocation="CenterScreen"
-        WindowState="Maximized"
-        FontSize="18">
-  <StackPanel HorizontalAlignment="Stretch"
-              VerticalAlignment="Stretch">
-    <TextBlock TextWrapping="Wrap"
-               Text="Tailor-made Tours - Chicago"
-               FontWeight="Bold"
-               FontSize="24" />
-    <TabControl MinHeight="680"
-                SelectionChanged="TabControl_SelectionChanged">
-      <TabItem Header="Tour Stops">
+        WindowState='Maximized'
+        FontSize='18'>
+  <StackPanel>
+    <TextBlock x:Name='textBlock'
+               TextWrapping='Wrap'
+               Text='Tailor-made Tours - Chicago'
+               FontSize='24'
+               FontWeight='Bold' />
+    <TabControl x:Name='tabControl'
+                MinHeight='680'>
+      <TabItem Header='Tour Stops'>
         <views:TourStopsView />
       </TabItem>
-      <TabItem Header="Details">
+      <TabItem Header='Details'>
         <views:DetailView />
       </TabItem>
-      <TabItem Header="Weekly Calender">
-        <Grid Background="Orange" />
+      <TabItem Header='Weekly Calendar'>
+        <Grid Background='Orange' />
       </TabItem>
+
     </TabControl>
   </StackPanel>
+
 </Window>
