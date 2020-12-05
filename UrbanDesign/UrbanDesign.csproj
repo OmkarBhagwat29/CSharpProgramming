@@ -55,6 +55,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GH_Components\IsoVist_Component.cs" />
+    <Compile Include="Logic\Cut.cs" />
+    <Compile Include="Logic\EdgePair.cs" />
+    <Compile Include="Logic\EdgePairSubpolylines.cs" />
     <Compile Include="Logic\Mover.cs" />
     <Compile Include="RhinoCommands\UrbanDesignCommand.cs" />
     <Compile Include="UrbanDesignPlugIn.cs" />

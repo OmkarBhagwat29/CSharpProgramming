@@ -41,16 +41,18 @@ namespace RhinoProjects.UrbanDesign.RhinoCommands
 
         private void DisplayPipeline_DrawForeground(object sender, DrawEventArgs e)
         {
-
-            tPara += 0.0015;
-
+            //if (simulate)
+            //{
+                
+            //}
+ 
             if (tPara >= 1)
                 tPara = 0;
 
             //curve.ClosestPoint(e.CurrentPoint, out tPara);
-            curve.PerpendicularFrameAt(tPara, out Plane plane);
+            //curve.PerpendicularFrameAt(tPara, out Plane plane);
 
-            mover.Update(plane.Origin);
+            mover.Update(curve.PointAt(tPara));
             List<Line> lns = mover.FindIntersectionLines(breps,out List<double> dists);
             int i = 0;
             double min = dists.Min();
@@ -61,17 +63,14 @@ namespace RhinoProjects.UrbanDesign.RhinoCommands
                 double colorD = Remap(dists[i], min, max, 1, 0);
 
                 e.Display.DrawArrow(line, gradient.ColourAt(colorD));
-
+                //e.Display.DrawArrow(line,Color.Red);
                 i++;
             }
 
-            e.Display.DrawSphere(new Sphere(plane.Origin, 1250), Color.Black);
 
+            e.Display.DrawSphere(new Sphere(curve.PointAt(tPara), 3000), Color.Black);
 
-            //vi.SetCameraLocation(plane.Origin, true);
-
-            //vPort.SetCameraLocation(plane.Origin, false);
-            //vPort.SetCameraDirection(plane.Normal, false);
+            tPara += 0.0001;
 
             Rhino.RhinoDoc.ActiveDoc.Views.ActiveView.Redraw();
         }
@@ -131,22 +130,13 @@ namespace RhinoProjects.UrbanDesign.RhinoCommands
 
             
 
-            int count = 360 / 50;
+            int count = 100;
             mover = new Mover(curve.PointAtStart, count);
 
 
             doc.Objects.UnselectAll();
             doc.Views.ActiveView.Redraw();
 
-            //RhinoView vi = doc.Views.Add("IsoVist_Camera", DefinedViewportProjection.Perspective, new System.Drawing.Rectangle(0, 0, 600, 600), true);
-            //vi.DisplayPipeline.ShadingRequired = true;
-
-            //vPort = vi.ActiveViewport;
-            //vPort.PushViewProjection();
-
-            //vPort.CameraUp = Vector3d.ZAxis;
-            //vPort.SetCameraLocation(curve.PointAtStart, false);
-         
 
             DisplayPipeline.DrawForeground += DisplayPipeline_DrawForeground;
 

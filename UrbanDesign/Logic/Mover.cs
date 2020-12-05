@@ -10,7 +10,7 @@ namespace RhinoProjects.UrbanDesign.Logic
 {
     public class Mover
     {
-
+        public static List<Brep> breps = new List<Brep>();
         public Point3d Origin { get; private set; }
         public int Count { get; private set; }
 
@@ -24,9 +24,12 @@ namespace RhinoProjects.UrbanDesign.Logic
             this.Count = armCounts;
             this.Lines = new List<Line>();
 
-            TransfomrRays();
+            this.TransfomrRays();
 
+            //rad = 56;
         }
+
+
 
         public void Update(Point3d newPt)
         {
@@ -37,29 +40,32 @@ namespace RhinoProjects.UrbanDesign.Logic
 
         }
 
-
         private void TransfomrRays()
         {
-            for (int i = 0; i < 360; i += Count)
+           
+            Vector3d dir = Vector3d.XAxis;
+            double angle = 360 / Count;
+
+            for (int i = 0; i < Count; i++)
             {
-                double angle = i;
-                Vector3d dir = new Vector3d(Math.Cos(RhinoMath.ToRadians(angle)), Math.Sin(RhinoMath.ToRadians(angle)), 0);
 
-                Line ln = new Line(Origin, dir, rad);
-                Lines.Add(ln);
-
-                //RhinoDoc.ActiveDoc.Objects.AddLine(ln);
+                if (dir.Rotate(RhinoMath.ToRadians(angle), Vector3d.ZAxis))
+                {
+                    Line ln = new Line(Origin, dir, rad);
+                    Lines.Add(ln);
+                }
 
             }
         }
+
 
         public List<Line> FindIntersectionLines(List<Brep> breps, out List<double> dists)
         {
             List<Line> lns = new List<Line>();
             dists = new List<double>();
+
             foreach (Line line in Lines)
             {
-
                 Point3d closePt = Point3d.Unset;
                 double d = double.MaxValue;
 
