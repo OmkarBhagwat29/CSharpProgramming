@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GH_Components\GreedyPlotDivision_Component.cs" />
     <Compile Include="GH_Components\IsoVist_Component.cs" />
     <Compile Include="Logic\Cut.cs" />
     <Compile Include="Logic\EdgePair.cs" />
@@ -78,6 +79,7 @@
   -->
   <PropertyGroup>
     <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).rhp"
+Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
 Erase "$(TargetPath)"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>

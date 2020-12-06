@@ -3,18 +3,21 @@ using System.Collections.Generic;
 
 using Grasshopper.Kernel;
 using Rhino.Geometry;
+using RhinoProjects.UrbanDesign.Logic;
 
 namespace UrbanDesign.GH_Components
 {
     public class IsoVist_Component : GH_Component
     {
+        Mover mover;
+        double tSpeed = 0;
         /// <summary>
         /// Initializes a new instance of the IsoVist_Component class.
         /// </summary>
         public IsoVist_Component()
-          : base("IsoVist_Component", "Nickname",
-              "Description",
-              "Category", "Subcategory")
+          : base("IsoVist", "isovist",
+              "",
+              "UD", "Compute")
         {
         }
 
@@ -23,6 +26,12 @@ namespace UrbanDesign.GH_Components
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
+            pManager.AddBooleanParameter("reset", "reset", "", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("run", "run", "", GH_ParamAccess.item);
+            pManager.AddCurveParameter("path", "path", "", GH_ParamAccess.item);
+            pManager.AddBrepParameter("Geoms", "Geoms", "", GH_ParamAccess.list);
+            pManager.AddNumberParameter("speed", "speed", "", GH_ParamAccess.item,0.001);
+            pManager.AddIntegerParameter("rayCount", "rayCount", "", GH_ParamAccess.item, 50);
         }
 
         /// <summary>
@@ -30,6 +39,8 @@ namespace UrbanDesign.GH_Components
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
+            pManager.AddLineParameter("lines", "lns", "", GH_ParamAccess.list);
+            pManager.AddNumberParameter("distances", "dists", "", GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -38,6 +49,49 @@ namespace UrbanDesign.GH_Components
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            bool reset = false;
+            bool run = false;
+            Curve path = null;
+            List<Brep> brps = new List<Brep>();
+            double speed = 0;
+            int rayCount = 0;
+
+            if (!DA.GetData(0, ref reset)) return;
+            if (!DA.GetData(1, ref run)) return;
+            if (!DA.GetData(2, ref path)) return;
+            if (!DA.GetDataList(3, brps)) return;
+            DA.GetData(4, ref speed);
+            DA.GetData(5, ref rayCount);
+
+            if (reset)
+            {
+                path.Domain = new Interval(0, 1);
+                mover = new Mover(path.PointAtStart, rayCount);
+                tSpeed = 0;
+
+            }
+
+            if (mover == null)
+                return;
+
+            if (run)
+                this.ExpireSolution(true);
+
+            mover.Count = rayCount;
+
+            mover.Update(path.PointAt(tSpeed));
+
+            List<Line> lns = mover.FindIntersectionLines(brps, out List<double> dists);
+
+       
+
+            tSpeed += speed;
+
+            if (tSpeed >= 1)
+                tSpeed = 0;
+
+            DA.SetDataList(0, lns);
+            DA.SetDataList(1, dists);
         }
 
         /// <summary>

@@ -12,7 +12,7 @@ namespace RhinoProjects.UrbanDesign.Logic
     {
         public static List<Brep> breps = new List<Brep>();
         public Point3d Origin { get; private set; }
-        public int Count { get; private set; }
+        public int Count { get;  set; }
 
         public List<Line> Lines { get; private set; }
 
