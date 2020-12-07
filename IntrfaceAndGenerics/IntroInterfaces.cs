@@ -97,7 +97,7 @@ namespace IntrfaceAndGenerics
             Console.WriteLine("Saving the document");
         }
     }
-    class Program
+    class IntroInterfaces
     {
         static void Main(string[] args)
         {
