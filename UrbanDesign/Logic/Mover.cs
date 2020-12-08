@@ -42,18 +42,24 @@ namespace RhinoProjects.UrbanDesign.Logic
 
         private void TransfomrRays()
         {
-           
-            Vector3d dir = Vector3d.XAxis;
-            double angle = 360 / Count;
 
-            for (int i = 0; i < Count; i++)
+            //Vector3d dir = Vector3d.XAxis;
+            //double angle = 360 / Count;
+
+            //for (int i = 0; i < 360; i += density)
+            //{
+            //    double angle = i;
+            //    rays.Add(new Ray(pos, angle));
+            //}
+
+            for (int i = 0; i < 360; i += this.Count)
             {
 
-                if (dir.Rotate(RhinoMath.ToRadians(angle), Vector3d.ZAxis))
-                {
-                    Line ln = new Line(Origin, dir, rad);
-                    Lines.Add(ln);
-                }
+                Vector3d dir = new Vector3d(Math.Cos(RhinoMath.ToRadians(i)), Math.Sin(RhinoMath.ToRadians(i)), 0);
+
+                Line ln = new Line(Origin, dir, rad);
+                Lines.Add(ln);
+
 
             }
         }
