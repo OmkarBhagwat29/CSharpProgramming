@@ -29,32 +29,32 @@ namespace EmployeeManagement
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,ILogger<Startup> logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                DeveloperExceptionPageOptions devOptions = new DeveloperExceptionPageOptions();
+                devOptions.SourceCodeLineCount = 10;
+
+                app.UseDeveloperExceptionPage(devOptions);
             }
 
-            app.UseRouting();
+            //FileServerOptions dOPtions = new FileServerOptions();
+            //dOPtions.DefaultFilesOptions.DefaultFileNames.Clear();
+            //dOPtions.DefaultFilesOptions.DefaultFileNames.Add("default.html"); //custom html to launch 
 
-            app.Use(async (context,next)=>
+            //app.UseDefaultFiles(dOPtions);
+            //app.UseStaticFiles();
+
+            app.UseFileServer();
+
+            app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello from 1st Midleware!");
-                await next();
+                throw new Exception("some error processing the request");
+                await context.Response.WriteAsync("Hello World");
             });
 
-            app.Run(async (context)
-                => await context.Response.WriteAsync("Hello from 2nd Midleware!"));
 
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapGet("/", async context =>
-            //    {
-            //        await context.Response.WriteAsync("Hello Internet!!!");
-            //    });
-            //});
         }
     }
 }
