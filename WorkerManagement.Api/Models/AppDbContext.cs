@@ -1,26 +1,38 @@
 ﻿using ManagementModels;
-using Microsoft.AspNetCore.Components;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 
-namespace BlazorServer.Pages.Base
+namespace WorkerManagement.Api.Models
 {
-    public class WorkerListBase : ComponentBase
+    public class AppDbContext : DbContext
     {
-        public IEnumerable<Worker> Workers { get; set; }
-
-        protected override async Task OnInitializedAsync()
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+            : base(options)
         {
-            await Task.Run(LoadWorkers);
-            //return base.OnInitializedAsync();
+
         }
 
-        private void LoadWorkers()
+        public DbSet<Worker> Workers { get; set; }
+        public DbSet<Department> Departments { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            Thread.Sleep(3000);
+            base.OnModelCreating(modelBuilder);
+
+            //Seed Departments Table
+            modelBuilder.Entity<Department>().HasData(
+                new Department { DepartmentId = 1, DepartmentName = "TT" });
+            modelBuilder.Entity<Department>().HasData(
+    new Department { DepartmentId = 2, DepartmentName = "HR" });
+            modelBuilder.Entity<Department>().HasData(
+                new Department { DepartmentId = 3, DepartmentName = "Payroll" });
+            modelBuilder.Entity<Department>().HasData(
+    new Department { DepartmentId = 4, DepartmentName = "Admin" });
+
+            //seed Worker Table
             Worker e1 = new Worker
             {
                 WorkerId = 1,
@@ -53,23 +65,28 @@ namespace BlazorServer.Pages.Base
                 Email = "mary@pragimtech.com",
                 DateOfBirth = new DateTime(1979, 11, 11),
                 Gender = Gender.Female,
-                DepartmentId = 3,
+                DepartmentId = 1,
                 PhotoPath = "images/om2.png"
             };
 
             Worker e4 = new Worker
             {
-                WorkerId = 3,
+                WorkerId = 4,
                 FirstName = "Sara",
                 LastName = "Longway",
                 Email = "sara@pragimtech.com",
                 DateOfBirth = new DateTime(1982, 9, 23),
                 Gender = Gender.Female,
-                DepartmentId = 4,
+                DepartmentId = 3,
                 PhotoPath = "images/om3.png"
             };
 
-            Workers = new List<Worker> { e1, e2, e3, e4 };
+            modelBuilder.Entity<Worker>().HasData(e1);
+            modelBuilder.Entity<Worker>().HasData(e2);
+            modelBuilder.Entity<Worker>().HasData(e3);
+            modelBuilder.Entity<Worker>().HasData(e4);
         }
+
     }
+
 }
