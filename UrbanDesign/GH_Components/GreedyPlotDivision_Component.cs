@@ -39,6 +39,7 @@ namespace UrbanDesign.GH_Components
         {
             pManager.AddCurveParameter("plots", "plots", "", GH_ParamAccess.list);
             pManager.AddNumberParameter("Area", "area", "", GH_ParamAccess.list);
+            pManager.AddPointParameter("centers", "centers", "", GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -74,6 +75,7 @@ namespace UrbanDesign.GH_Components
 
             DA.SetDataList(0, plotParts);
             DA.SetDataList(1, plotParts.Select(p => Math.Round(AreaMassProperties.Compute(p.ToNurbsCurve()).Area, 2)));
+            DA.SetDataList(2, plotParts.Select(p => AreaMassProperties.Compute(p.ToNurbsCurve()).Centroid));
         }
 
         /// <summary>

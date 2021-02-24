@@ -31,6 +31,28 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RhinoProjects", "RhinoProje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrbanDesign", "UrbanDesign\UrbanDesign.csproj", "{1F5DEAB4-597E-477C-A55A-62021BBD55E9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WEBApp", "WEBApp", "{F0545C7C-8B10-4914-AB2F-9E60AC77E201}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstWebApp", "MyFirstWebApp\MyFirstWebApp.csproj", "{E544E023-66DB-4D8D-8200-138E08F761FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServer", "BlazorServer\BlazorServer.csproj", "{8CB79BA3-FD33-4033-A6AF-29855D656E5E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWbAssembly", "BlazorWbAssembly\BlazorWbAssembly.csproj", "{9B0A0145-F74D-4044-922E-284FD2DAD7B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RhinoTestCommands", "RhinoTestCommands\RhinoTestCommands.csproj", "{A0EB2AAB-47DE-48AC-A8E7-1C28C82CE5B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagementModels", "ManagementModels\ManagementModels.csproj", "{34A2BCAC-D090-4784-BF54-9EC0FC55B9A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkerManagement.Api", "WorkerManagement.Api\WorkerManagement.Api.csproj", "{FE7F1210-CC99-4D45-8083-74FADB60BC37}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutodeskForge", "AutodeskForge", "{AD3ABA3B-C970-4A91-B746-8F656C01C801}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForgeSample", "ForgeSample\ForgeSample.csproj", "{4BDF9ADA-B0FA-4C46-A03E-07F281FA6D5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RevitPlugIns", "RevitPlugIns", "{9F6C9291-6D59-405A-8D1A-2B3A33F34924}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateRVTParam", "UpdateRVTParam\UpdateRVTParam.csproj", "{33719F8B-E665-4A0B-A842-EB68E2E03861}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ASPNetCore", "ASPNetCore", "{0096ED2F-DC0D-4AE1-A925-1BA5E6F56B0A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagement", "EmployeeManagement\EmployeeManagement.csproj", "{E165719E-5EB2-4681-BF88-444082C8DE31}"

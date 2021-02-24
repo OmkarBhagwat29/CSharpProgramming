@@ -66,7 +66,7 @@ namespace UrbanDesign.GH_Components
             if (reset)
             {
                 path.Domain = new Interval(0, 1);
-                mover = new Mover(path.PointAtStart, rayCount);
+                mover = new Mover(path.PointAtStart, (int)360/rayCount);
                 tSpeed = 0;
 
             }
@@ -77,7 +77,7 @@ namespace UrbanDesign.GH_Components
             if (run)
                 this.ExpireSolution(true);
 
-            mover.Count = rayCount;
+            mover.Count = (int)(360/rayCount);
 
             mover.Update(path.PointAt(tSpeed));
 
