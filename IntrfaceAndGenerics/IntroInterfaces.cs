@@ -13,6 +13,7 @@ namespace IntrfaceAndGenerics
     interface IStorable
     {
         void Save();
+
         void Load();
         Boolean NeedSave { get; set; }
 
