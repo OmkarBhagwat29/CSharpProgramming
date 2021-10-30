@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Name>Testing</Name>
+    <FullClassName>RevitAutomation.TestCommand</FullClassName>
+    <Text> Hello World Text </Text>
+    <Description> Hello World Description</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <Assembly>
+      C:\ProgramData\RevitAutomation\RevitAutomation.dll
+    </Assembly>
+    <AddInId>98071FA9-5022-499B-8D70-92E5022A178C
+    </AddInId>
+    <VendorId>AECTechy</VendorId>
+    <VendorDescription>AECTechy</VendorDescription>
+  </AddIn>
+
+  <AddIn Type="Command">
+    <Name>Snoop Db Element</Name>
+    <FullClassName>RevitAutomation.DbElement</FullClassName>
+    <Text> Snoop Element </Text>
+    <Description> information about selected element</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <Assembly>
+      C:\ProgramData\RevitAutomation\RevitAutomation.dll
+    </Assembly>
+    <AddInId>
+      2EEBE037-66DC-4F8A-805D-89DF328130CE
+    </AddInId>
+    <VendorId>AECTechy</VendorId>
+    <VendorDescription>AECTechy</VendorDescription>
+  </AddIn>
+
+  <AddIn Type="Command">
+    <Name>Filter Element</Name>
+    <FullClassName>RevitAutomation.ElementFiltering</FullClassName>
+    <Text> fileter Elements </Text>
+    <Description> filter elements</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <Assembly>
+      C:\ProgramData\RevitAutomation\RevitAutomation.dll
+    </Assembly>
+    <AddInId>
+      9E3F0937-19AC-449D-87EE-E63D3DFE673D
+    </AddInId>
+    <VendorId>AECTechy</VendorId>
+    <VendorDescription>AECTechy</VendorDescription>
+  </AddIn>
+
+  <AddIn Type="Command">
+    <Name>Modify Element</Name>
+    <FullClassName>RevitAutomation.ElementModification</FullClassName>
+    <Text> Modify Elements </Text>
+    <Description> filter elements</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <Assembly>
+      C:\ProgramData\RevitAutomation\RevitAutomation.dll
+    </Assembly>
+    <AddInId>
+      0213D3BC-AFEE-4A87-AB45-C3D81D4F8A38
+    </AddInId>
+    <VendorId>AECTechy</VendorId>
+    <VendorDescription>AECTechy</VendorDescription>
+  </AddIn>
+
+  <AddIn Type="Command">
+    <Name>Build House</Name>
+    <FullClassName>RevitAutomation.BuildHouse</FullClassName>
+    <Text> Build House </Text>
+    <Description> filter elements</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <Assembly>
+      C:\ProgramData\RevitAutomation\RevitAutomation.dll
+    </Assembly>
+    <AddInId>
+      1B5AFC71-4E39-466B-8BF6-460288436BAE
+    </AddInId>
+    <VendorId>AECTechy</VendorId>
+    <VendorDescription>AECTechy</VendorDescription>
+  </AddIn>
+
+
+  <AddIn Type="Application">
+    <Name>TestApp</Name>
+    <FullClassName>RevitAutomation.HelloWorldApp</FullClassName>
+    <Text> Hello World Text </Text>
+    <Description> Hello World Description</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <Assembly>
+      C:\ProgramData\RevitAutomation\RevitAutomation.dll
+    </Assembly>
+    <AddInId>
+      39658B2D-E3C0-42F1-9386-B892F3E02844
+    </AddInId>
+    <VendorId>AECTechy</VendorId>
+    <VendorDescription>AECTechy</VendorDescription>
+  </AddIn>
+  
+</RevitAddIns>
