@@ -48,10 +48,20 @@
   <ItemGroup>
     <Compile Include="GH_Components\GreedyPlotDivision_Component.cs" />
     <Compile Include="GH_Components\IsoVist_Component.cs" />
+    <Compile Include="Helper\Dimensions\Dimensions.cs" />
     <Compile Include="Logic\Cut.cs" />
     <Compile Include="Logic\EdgePair.cs" />
     <Compile Include="Logic\EdgePairSubpolylines.cs" />
+    <Compile Include="Residential\Door.cs" />
+    <Compile Include="Residential\HouseSystem.cs" />
+    <Compile Include="Residential\LandParcel.cs" />
     <Compile Include="Logic\Mover.cs" />
+    <Compile Include="Logic\Sheet.cs" />
+    <Compile Include="Residential\Room.cs" />
+    <Compile Include="Residential\RoomCutOut.cs" />
+    <Compile Include="Residential\RoomSystem.cs" />
+    <Compile Include="Residential\WallInfo.cs" />
+    <Compile Include="Residential\Window.cs" />
     <Compile Include="RhinoCommands\UrbanDesignCommand.cs" />
     <Compile Include="UrbanDesignPlugIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

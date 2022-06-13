@@ -15,23 +15,24 @@ namespace MongoDBWebApp.Controllers
     {
 
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        IMongoCollection<ShipWreck> _shipwreckCollection;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(IMongoClient client)
         {
-            _logger = logger;
+            var database = client.GetDatabase("sample_geospatial");
+            this._shipwreckCollection = database.GetCollection<ShipWreck>("shipwrecks");
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IEnumerable<ShipWreck> Get()
         {
-            var client = new MongoClient("mongodb+srv://liveOm:Omkar29hs-owl@cluster0.ew0x3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+            return this._shipwreckCollection.Find(s=>s.FeatureType=="Wrecks - Visible").ToList();
+        }
 
-            var database = client.GetDatabase("sample_geospatial");
-            var collection = database.GetCollection<BsonDocument>("shipwrecks"); 
-            
-
-            return null;
+        [HttpGet("{index:int}")]
+        public ShipWreck Get(int index)
+        {
+            return this._shipwreckCollection.Find(s => s.FeatureType == "Wrecks - Visible").ToList()[index];
         }
     }
 }

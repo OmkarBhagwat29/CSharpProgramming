@@ -29,7 +29,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("RhinoTestCommands")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -39,7 +39,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a0eb2aab-47de-48ac-a8e7-1c28c82ce5b6")] // This will also be the Guid of the Rhino plug-in
+[assembly: Guid("008d8ccd-2fa9-42b7-b377-20960f2dc337")] // This will also be the Guid of the Rhino plug-in
 
 // Version information for an assembly consists of the following four values:
 //
