@@ -1,10 +1,19 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using DataStructures.Examples;
+using System.Numerics;
+
 public class Program
 {
     static void Main()
     {
 
+
+    }
+
+    static void SelectionSort<T>(T[] array) where T : IComparable
+    {
+        
     }
 
     static bool IsPalindrome(string word)
