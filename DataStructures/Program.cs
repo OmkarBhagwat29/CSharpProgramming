@@ -7,14 +7,21 @@ public class Program
 {
     static void Main()
     {
+        int[] arr = { -4, -34, 6, 78, 0, -53, 193 };
 
+
+        Sort.BubbleSort<int>(arr);
+
+        Console.WriteLine("***************************");
+        for (int i = 0; i < arr.Length; i++)
+        {
+            Console.WriteLine(arr[i]);
+        }
 
     }
 
-    static void SelectionSort<T>(T[] array) where T : IComparable
-    {
-        
-    }
+
+
 
     static bool IsPalindrome(string word)
     {
