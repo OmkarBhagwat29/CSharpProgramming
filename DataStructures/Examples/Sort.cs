@@ -88,5 +88,57 @@ namespace DataStructures.Examples
 
             }
         }
+
+        public static void QuickSort<T>(T[] arr,int left,int right) where T : IComparable
+        {
+            int pivot = -1;
+           
+
+            if (left < right)
+            {
+                pivot = Partition(arr, left, right);
+
+                if (pivot > 1)
+                {
+                    QuickSort<T>(arr, left, pivot - 1);
+                }
+
+                if (pivot + 1 < right)
+                {
+                    QuickSort<T>(arr,pivot+1, right);
+                }
+            }
+
+        }
+
+        private static int Partition<T>(T[] arr, int left, int right) where T : IComparable
+        {
+            T pivot = arr[left];
+
+            while (true)
+            {
+                while (arr[left].CompareTo(pivot)<0)
+                {
+                    left++;
+                }
+
+                while (arr[right].CompareTo(pivot)>0)
+                {
+                    right--;
+                }
+
+                if (left < right)
+                {
+                    T temp = arr[right];
+                    arr[right] = arr[left];
+                    arr[left] = temp;
+                }
+                else
+                    return right;
+
+                
+                   
+            }
+        }
     }
 }
