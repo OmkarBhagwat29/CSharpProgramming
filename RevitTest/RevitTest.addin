@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Command">
+		<Name>HelloWorld</Name>
+		<FullClassName>RevitTest.CreateBeamsColumnsBraces</FullClassName>
+		<Text>Hello World</Text>
+		<Description>Sys hello to revit</Description>
+		<VisibilityMode>AlwaysVisible</VisibilityMode>
+		<Assembly>C:\Users\Om\source\repos\OmkarBhagwat29\CSharpProgramming\RevitTest\bin\Debug\RevitTest.dll</Assembly>
+		<AddInId>47323024-2C11-491C-9510-D32975B5EC6E</AddInId>
+		<VendorId>Om</VendorId>
+		<VendorDescription>Autodesk, Inc, www.autodesk.com</VendorDescription>
+	</AddIn>
+
+</RevitAddIns>
