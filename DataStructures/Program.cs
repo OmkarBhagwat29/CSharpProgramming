@@ -10,14 +10,26 @@ public class Program
         int[] arr = { -4, -34, 6, 78, 0, -53, 193 };
 
 
-        Sort.BubbleSort<int>(arr);
+        CircularLinkedList<int> cl = new CircularLinkedList<int>();
 
-        Console.WriteLine("***************************");
-        for (int i = 0; i < arr.Length; i++)
+        foreach (var a in arr)
         {
-            Console.WriteLine(arr[i]);
+            cl.AddLast(a);
         }
 
+        var data = cl.GetEnumerator();
+        int i = 0;
+        while (true)
+        {
+            Console.WriteLine(data.Current);
+
+            data.MoveNext();
+
+            if (i > 10)
+                break;
+            
+            i++;
+        }
     }
 
 
