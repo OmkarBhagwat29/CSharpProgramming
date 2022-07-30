@@ -1,4 +1,5 @@
 ﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.DB.Structure;
 using Autodesk.Revit.UI;
 using System;
 using System.Collections;
@@ -164,6 +165,44 @@ namespace RevitTest
             }
 
             return true;
+        }
+
+        void PlaceBeam(UV point, FamilySymbol colSymbol, Level baseLvl, Level topLvl)
+        {
+            XYZ insertPt = new XYZ(point.U, point.V, 0);
+            StructuralType strType = StructuralType.Column;
+            if (!colSymbol.IsActive)
+                colSymbol.Activate();
+
+            FamilyInstance column = uiApp.ActiveUIDocument.Document.Create.NewFamilyInstance(insertPt,colSymbol,strType);
+
+            if (null != column)
+            {
+                Parameter baseLevelParam = column.get_Parameter(BuiltInParameter.FAMILY_BASE_LEVEL_PARAM);
+                Parameter topLevelParam = column.get_Parameter(BuiltInParameter.FAMILY_TOP_LEVEL_PARAM);
+                Parameter topOffsetParam = column.get_Parameter(BuiltInParameter.FAMILY_TOP_LEVEL_OFFSET_PARAM);
+                Parameter baseOffsetParam = column.get_Parameter(BuiltInParameter.FAMILY_BASE_LEVEL_OFFSET_PARAM);
+
+                if (baseLevelParam != null)
+                {
+                    ElementId baseLvlId = baseLvl.Id;
+                    baseLevelParam.Set(baseLvlId);
+                }
+
+                if (topLevelParam != null)
+                {
+                    ElementId topLvlId = topLvl.Id;
+                    topLevelParam.Set(topLvlId);
+                }
+
+                if (null != topOffsetParam)
+                {
+                    topOffsetParam.Set(0.0);
+                }
+
+                if (null != baseOffsetParam)
+                    baseOffsetParam.Set(0.0);
+            }
         }
     }
 }
